@@ -1,0 +1,8 @@
+SELECT * FROM lms.candidate_qualification;
+INSERT INTO candidate_qualification (Id, candidate_id, diploma, degree_name, is_degree_name_verified, employee_discipline, is_employee_discipline_verified, passing_year, is_passing_year_verified, aggr_per, is_aggr_per_verified, final_year_per, is_final_year_per_verified, training_institute, is_training_institute_verified, training_duration_month, is_training_duration_month_verified, other_training, is_other_training_verified, creator_user)
+VALUES
+(1, 19, 'Diploma in Computer Science', 'Bachelor of Technology', 1, 'Computer Science', 1, 2019, 1, 75.50, 1, 78.00, 1, 'GPP Pune', 1, 12, 1, 'Java Programming', 1,1),
+(2, 20, 'Diploma in Electrical Engineering', 'Bachelor of Science in Electrical Engineering', 1, 'Electrical Engineering', 1, 2018, 1, 80.00, 1, 82.50, 1, 'MIT Pune', 1, 10, 1, 'Circuit Design', 1, 2),
+(3, 13, 'Diploma in Mechanical Engineering', 'Master of Technology in Mechanical Engineering', 1, 'Mechanical Engineering', 1, 2020, 1, 70.00, 1, 72.50, 1, 'VJTI mumbai',1,15, 1, 'Finite Element Analysis', 1,3),
+(4, 12, 'Diploma in Civil Engineering', 'Bachelor of Technology in Civil Engineering', 1, 'Civil Engineering', 1, 2017, 1, 85.00, 1, 87.50, 1, 'DYPatil', 1, 8, 1, 'Structural Design', 1, 4),
+(5, 17, 'Diploma in Electronics and Communication', 'Master of Science in Electronics and Communication', 1, 'Electronics and Communication', 1, 2021, 1, 78.50, 1, 81.00, 1, 'Terna Institute', 1, 14, 1, 'Wireless Communication', 1,5);
