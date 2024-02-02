@@ -58,3 +58,14 @@ LEFT JOIN
 WHERE
     cbd.candidate_Id IS NULL;
 
+-- 6.-find name of candidates which is joined in feb  month
+SELECT
+    ud.first_name,
+    ud.last_name
+FROM
+    user_details ud
+JOIN
+    fellowship_candidate fc ON ud.id = fc.creator_user_id
+WHERE
+    MONTH(fc.joining_date) = 2;
+
