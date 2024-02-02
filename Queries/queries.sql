@@ -24,3 +24,26 @@ JOIN
     Mentor_Ideation_Map mim ON m.Id = mim.mentor_id
 WHERE
     ts.tech_name = 'Java';
+    
+    -- 3.- find name of candidate which did not assign technology
+    SELECT
+    ud.first_name,
+    ud.last_name
+FROM
+    user_details ud
+LEFT JOIN
+    CandidateStackAssignment cs ON ud.id = cs.candidate_id
+WHERE
+    cs.candidate_id IS NULL;
+
+-- 4.- find name of cnadidate which is not submit documents
+SELECT
+    ud.first_name,
+    ud.last_name
+FROM
+    user_details ud
+LEFT JOIN
+    candidate_documents cd ON ud.id = cd.candidate_id
+WHERE
+    cd.candidate_id IS NULL;
+
