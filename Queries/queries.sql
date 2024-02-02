@@ -47,3 +47,14 @@ LEFT JOIN
 WHERE
     cd.candidate_id IS NULL;
 
+-- 5.- find name of candidate which is not submit bank details
+SELECT
+    ud.first_name,
+    ud.last_name
+FROM
+    user_details ud
+LEFT JOIN
+    candidate_bank_details cbd ON ud.id = cbd.candidate_Id
+WHERE
+    cbd.candidate_Id IS NULL;
+
