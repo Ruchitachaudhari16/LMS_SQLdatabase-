@@ -138,6 +138,17 @@ FROM user_details u
 JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
 WHERE u.id = 17;
 
+-- 16.find candidates which is deployed
+SELECT first_name, last_name
+FROM user_details
+WHERE id IN (
+    SELECT creator_user_id
+    FROM fellowship_candidate
+    WHERE candidate_status = 'Hired'
+);
+
+
+
 
 
 
