@@ -146,7 +146,64 @@ WHERE id IN (
     FROM fellowship_candidate
     WHERE candidate_status = 'Hired'
 );
+
 -- 17. -find name and other details and name of company which is assign to condidate.
+SELECT u.first_name, u.last_name, cr.city AS assigned_city, cr.no_of_engg, c.name AS company_name
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+JOIN CompanyRequirement cr ON u.id = cr.company_id
+JOIN Company c ON cr.company_id = c.Id;
+
+SELECT u.first_name, u.last_name, cr.city AS assigned_city, cr.no_of_engg, c.name AS company_name
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+JOIN CompanyRequirement cr ON u.id = cr.company_id
+JOIN Company c ON cr.company_id = c.Id;
+
+-- 18. -find all condidate and mentors which is related to lab= banglore/mumbai/pune.
+
+SELECT u.first_name, u.last_name, 'Candidate' AS type, l.location AS lab_location
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+JOIN Lab l ON fc.hired_lab = l.name
+WHERE l.location IN ('Bangalore', 'Mumbai', 'Pune')
+
+UNION
+
+SELECT m.name AS first_name, '' AS last_name, 'Mentor' AS type, l.location AS lab_location
+FROM Mentor m
+JOIN Lab l ON m.lab_id = l.Id
+WHERE l.location IN ('Bangalore', 'Mumbai', 'Pune');
+
+-- 
+SELECT 
+    u.first_name,
+    u.last_name,
+    'Candidate' AS type,
+    l.location AS lab_location
+FROM 
+    user_details u
+JOIN 
+    fellowship_candidate fc ON u.id = fc.creator_user_id
+LEFT JOIN 
+    Lab l ON fc.hired_lab = l.name
+WHERE 
+    l.location IN ('Bangalore', 'Mumbai', 'Pune')
+
+UNION
+
+SELECT 
+    m.name AS first_name,
+    '' AS last_name,
+    'Mentor' AS type,
+    l.location AS lab_location
+FROM 
+    Mentor m
+LEFT JOIN 
+    Lab l ON m.lab_id = l.Id
+WHERE 
+    l.location IN ('City1', 'City2', 'City3');
+
 
 
 
