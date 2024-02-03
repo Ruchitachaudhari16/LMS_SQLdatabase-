@@ -113,6 +113,13 @@ FROM user_details u
 JOIN hired_candidate hc ON u.id = hc.creator_user_id
 WHERE MONTH(hc.hired_date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)
   AND YEAR(hc.hired_date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH);
+  
+  -- 12.how many week candidate completed in the bridgelabz since joining date candidate id is 12
+  SELECT u.first_name, u.last_name, DATEDIFF(CURDATE(), fc.joining_date) / 7 AS weeks_completed
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+WHERE u.id = 12;
+
 
 
 
