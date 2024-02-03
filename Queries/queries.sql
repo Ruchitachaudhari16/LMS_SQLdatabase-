@@ -82,4 +82,11 @@ FROM user_details u
 JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
 WHERE fc.joining_date IS NOT NULL
   AND DATE_ADD(fc.joining_date, INTERVAL 12 MONTH) = '2019-02-22';
+  
+  -- 9.-find all candidates which is passed out in 2019 year
+  SELECT u.first_name, u.last_name
+FROM user_details u
+JOIN candidate_qualification cq ON u.id = cq.candidate_id
+WHERE cq.passing_year = 2019;
+
 
