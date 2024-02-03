@@ -126,6 +126,13 @@ FROM user_details u
 JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
 WHERE u.id = 17;
 
+-- 14. how many week remaining of candidate in the bridglabz from today if candidate id is 5
+SELECT u.first_name, u.last_name, DATEDIFF(fc.joining_date, CURDATE()) / 7 AS weeks_remaining
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+WHERE u.id = 17;
+
+
 
 
 
