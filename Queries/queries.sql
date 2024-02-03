@@ -75,3 +75,11 @@ FROM user_details u
 JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
 WHERE fc.hired_date IS NOT NULL
   AND MONTH(fc.hired_date) = 2;
+  
+  -- 8.-find name of candidates which is ending date accounding to joining date if joining date is 22-02-2019
+  SELECT u.first_name, u.last_name
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+WHERE fc.joining_date IS NOT NULL
+  AND DATE_ADD(fc.joining_date, INTERVAL 12 MONTH) = '2019-02-22';
+
