@@ -69,3 +69,9 @@ JOIN
 WHERE
     MONTH(fc.joining_date) = 2;
 
+-- 7.-find name of candidates which is end of couse in feb
+SELECT u.first_name, u.last_name
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+WHERE fc.hired_date IS NOT NULL
+  AND MONTH(fc.hired_date) = 2;
