@@ -146,6 +146,7 @@ WHERE id IN (
     FROM fellowship_candidate
     WHERE candidate_status = 'Hired'
 );
+-- 17. -find name and other details and name of company which is assign to condidate.
 
 
 
