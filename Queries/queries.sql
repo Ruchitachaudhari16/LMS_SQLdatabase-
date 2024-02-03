@@ -132,6 +132,13 @@ FROM user_details u
 JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
 WHERE u.id = 17;
 
+-- 15 -how many days remaining of candidate in the bridgelabz from today if candidate is is 17
+SELECT u.first_name, u.last_name, DATEDIFF(fc.joining_date, CURDATE()) AS days_remaining
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+WHERE u.id = 17;
+
+
 
 
 
