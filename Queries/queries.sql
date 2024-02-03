@@ -120,6 +120,13 @@ FROM user_details u
 JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
 WHERE u.id = 12;
 
+-- 13.  To find the joining date of a candidate with ID 17,
+SELECT u.first_name, u.last_name, fc.joining_date
+FROM user_details u
+JOIN fellowship_candidate fc ON u.id = fc.creator_user_id
+WHERE u.id = 17;
+
+
 
 
 
