@@ -89,4 +89,30 @@ FROM user_details u
 JOIN candidate_qualification cq ON u.id = cq.candidate_id
 WHERE cq.passing_year = 2019;
 
+-- 10.
+SELECT u.first_name, u.last_name, ts.tech_name
+FROM user_details u
+JOIN candidate_qualification cq ON u.id = cq.candidate_id
+JOIN candidatestackassignment csa ON u.id = csa.candidate_id
+JOIN tech_stack ts ON csa.tech_stack = ts.Id
+WHERE cq.degree_name = 'MCA';
+
+SELECT u.first_name, u.last_name, ts.tech_name
+FROM user_details u
+JOIN candidate_stack_assignment csa ON u.id = csa.candidate_id
+JOIN tech_stack ts ON csa.tech_stack_id = ts.Id -- Adjust this part based on the actual relationship
+WHERE u.id IN (
+    SELECT cq.candidate_id
+    FROM candidate_qualification cq
+    WHERE cq.degree_name = 'MCA'
+);
+
+-- 11.-how many candiates which is having last month
+ SELECT COUNT(*) AS candidate_count
+FROM user_details u
+JOIN hired_candidate hc ON u.id = hc.creator_user_id
+WHERE MONTH(hc.hired_date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)
+  AND YEAR(hc.hired_date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH);
+
+
 
